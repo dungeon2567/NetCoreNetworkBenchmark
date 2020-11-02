@@ -10,10 +10,12 @@
 
 using System.Threading;
 using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Jobs;
 
 namespace NetCoreNetworkBenchmark
 {
-	[SimpleJob(launchCount: 1, warmupCount: 1, targetCount: 10, id:"Performance Benchmarks")]
+	//[SimpleJob(RuntimeMoniker.CoreRt31, launchCount: 1, warmupCount: 1, targetCount: 10)]
+	[SimpleJob(RuntimeMoniker.CoreRt50, launchCount: 1, warmupCount: 1, targetCount: 10)]
 	[GcServer(true)]
 	[GcConcurrent(false)]
 	[RPlotExporter]
